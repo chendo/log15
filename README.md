@@ -1,6 +1,10 @@
 # Log15
 
-TODO: Write a gem description
+![obligatory xkcd](http://imgs.xkcd.com/comics/standards.png)
+
+This library was inspired by [inconshreveable/log15](https://github.com/inconshreveable/log15).
+
+`log15` is a structured logger, outputting a message followed by key/value pairs containing more information about that particular line. This is useful if you're piping your logs to something like Kibana and want to make processing them simpler.
 
 ## Installation
 
@@ -20,12 +24,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+# Create a new log15 logger
+logger = Log15::Logger.default
+logger.info("Test message", foo: "bar")
+```
 
-## Contributing
+This will output something like:
 
-1. Fork it ( https://github.com/[my-github-username]/log15/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+```
+INFO[11-26|16:27:09] Test message foo="bar"\n"
+```
+
+Other log levels are also supported: `debug`, `warn`, and `error`.
