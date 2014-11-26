@@ -16,7 +16,7 @@ module Log15
     end
 
     def self.default
-      @logger ||= Log15.new
+      @logger ||= Log15::Logger.new
     end
 
     def self.sanitize(params, key, opts={})
