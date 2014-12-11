@@ -11,7 +11,7 @@ describe Log15 do
       output = log.string
       expect(output).to match(/^INFO/)
       expect(output).to match(/\[\d{2}-\d{2}|\d{2}:\d{2}:\d{2}\]/)
-      expect(output).to match(/msg foo="bar" baz="foo"\n$/)
+      expect(output).to match(/msg foo="bar" baz="foo" lvl=info\n$/)
     end
 
     it "message with quotes" do
@@ -19,7 +19,7 @@ describe Log15 do
       output = log.string
       expect(output).to match(/^INFO/)
       expect(output).to match(/\[\d{2}-\d{2}|\d{2}:\d{2}:\d{2}\]/)
-      expect(output).to match(/msg foo="\\\"bar\\\""\n$/)
+      expect(output).to match(/msg foo="\\\"bar\\\"" lvl=info\n$/)
     end
 
     it "message with nested hash" do
@@ -27,7 +27,7 @@ describe Log15 do
       output = log.string
       expect(output).to match(/^INFO/)
       expect(output).to match(/\[\d{2}-\d{2}|\d{2}:\d{2}:\d{2}\]/)
-      expect(output).to match(/msg foo="{\\\"bar\\\":\\\"baz\\\"}"\n$/)
+      expect(output).to match(/msg foo="{\\\"bar\\\":\\\"baz\\\"}" lvl=info\n$/)
     end
 
     it "message with nested array" do
@@ -35,7 +35,7 @@ describe Log15 do
       output = log.string
       expect(output).to match(/^INFO/)
       expect(output).to match(/\[\d{2}-\d{2}|\d{2}:\d{2}:\d{2}\]/)
-      expect(output).to match(/msg foo="\[\\\"bar\\\",\\\"baz\\\"\]"\n$/)
+      expect(output).to match(/msg foo="\[\\\"bar\\\",\\\"baz\\\"\]" lvl=info\n$/)
     end
   end
 
@@ -45,7 +45,7 @@ describe Log15 do
       output = log.string
       expect(output).to match(/^DBUG/)
       expect(output).to match(/\[\d{2}-\d{2}|\d{2}:\d{2}:\d{2}\]/)
-      expect(output).to match(/msg foo="bar"\n$/)
+      expect(output).to match(/msg foo="bar" lvl=debug\n$/)
     end
   end
 

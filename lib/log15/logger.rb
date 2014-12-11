@@ -10,8 +10,9 @@ module Log15
         date = "#{datetime.month}-#{datetime.day}"
         time = "#{pad(datetime.hour)}:#{pad(datetime.min)}:#{pad(datetime.sec)}"
         severities = { "ERROR" => "EROR", "DEBUG" => "DBUG" }
+        original_severity = severity
         severity = severities.fetch(severity, severity)
-        "#{severity}[#{date}|#{time}] #{msg}\n"
+        "#{severity}[#{date}|#{time}] #{msg} lvl=#{original_severity.downcase}\n"
       end
     end
 
